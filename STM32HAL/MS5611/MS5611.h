@@ -39,7 +39,7 @@ typedef enum
 
 bool MS5611_Init();
 void MS5611_initConstants(bool mathMode);
-bool MS5611_testConnestion();
+bool MS5611_testConnection();
 bool MS5611_PROM();
 
 void MS5611_setOversampling(ms5611_osr_t osr);

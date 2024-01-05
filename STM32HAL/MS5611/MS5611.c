@@ -41,7 +41,7 @@ bool MS5611_Init(){
     return MS5611_PROM();
 }
 
-bool MS5611_testConnestion(){
+bool MS5611_testConnection(){
 	return MS5611_PROM();
 }
 
