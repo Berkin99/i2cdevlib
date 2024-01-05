@@ -6,12 +6,13 @@
 //
 // Changelog:
 //     03-11-2023 - Created for STM32 HAL library from MS5611 documentation.
+//     05-01-2024 - Test Connection Routine Change
 
 #include "MS5611.h"
 
-uint32_t _deviceID;
-uint8_t _samplingRate;
-uint8_t ct;
+static uint32_t _deviceID;
+static uint8_t _samplingRate;
+static uint8_t ct;
 
 /*Stored PROM values multiplied by calculation constants for optimisation*/
 float _C[7];
@@ -32,13 +33,19 @@ void reset();
 uint16_t readPROM(uint8_t reg);
 
 
-
 bool MS5611_Init(){
     reset();
     MS5611_setOversampling(MS5611_HIGH_RES);
     MS5611_initConstants(false);
     HAL_Delay(10);
+    return MS5611_PROM();
+}
 
+bool MS5611_testConnestion(){
+	return MS5611_PROM();
+}
+
+bool MS5611_PROM(){
     _deviceID = 0;
     bool PROM = true;
     for (uint8_t reg = 0; reg < 7; reg++)

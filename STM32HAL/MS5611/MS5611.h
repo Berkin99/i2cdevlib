@@ -6,6 +6,7 @@
 //
 // Changelog:
 //     03-11-2023 - Created for STM32 HAL library from MS5611 documentation.
+//     05-01-2024 - Test Connection Routine Change
 
 #ifndef INC_MS5611_H_
 #define INC_MS5611_H_
@@ -38,7 +39,8 @@ typedef enum
 
 bool MS5611_Init();
 void MS5611_initConstants(bool mathMode);
-
+bool MS5611_testConnestion();
+bool MS5611_PROM();
 
 void MS5611_setOversampling(ms5611_osr_t osr);
 ms5611_osr_t MS5611_getOversampling();
